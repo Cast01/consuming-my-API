@@ -23,26 +23,45 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    form {
+      width: 300px;
+      background: pink;
+      padding: 15px;
+      border-radius: 15px;
+
+      input {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      button {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        padding: 5px 15px;
+      }
+    }
   }
 
-  form {
-    width: 300px;
-    background: pink;
-    padding: 15px;
-    border-radius: 15px;
+  footer {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
 
-    input {
-      display: block;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-
-    button {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+    #button {
+      padding: 10px 30px;
       cursor: pointer;
-      padding: 5px 15px;
+      background: #00a905;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      color: #000;
     }
   }
 `;

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface FoodListProps {
+  modal: boolean;
+}
+
 export const Container = styled.div`
   width: 100vw;
   min-width: 300px;
@@ -7,6 +11,54 @@ export const Container = styled.div`
   background: white;
   display: flex;
   flex-direction: column;
+
+  .updateFormModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: ${({ modal }: FoodListProps) => (modal ? "flex" : "none")};
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 300px;
+      background: pink;
+      padding: 15px;
+      border-radius: 15px;
+
+      .close {
+        width: 100%;
+        height: 25px;
+        display: flex;
+        justify-content: flex-end;
+
+        .closeIcon {
+          background: red;
+          padding: 3px;
+          border-radius: 3px;
+          color: #000;
+          cursor: pointer;
+        }
+      }
+
+      input {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      button {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        padding: 5px 15px;
+      }
+    }
+  }
 
   header {
     width: 100%;
@@ -94,7 +146,7 @@ export const Container = styled.div`
 
     .buttonContainer {
       width: 100%;
-      height: 60px;
+      height: 65px;
       display: flex;
       justify-content: center;
       align-items: center;

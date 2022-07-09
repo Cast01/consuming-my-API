@@ -1,13 +1,11 @@
 import { FormEvent, useState } from "react";
 import { Container } from "./FormStyle";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Form() {
   const [foodName, setFoodName] = useState("");
   const [daysSinceIAte, setDaysSinceIAte] = useState("");
-
-  const navigate = useNavigate();
 
   function addToList(e: FormEvent) {
     e.preventDefault();
@@ -17,7 +15,10 @@ export function Form() {
       daysSinceIAte,
     });
 
-    navigate("/");
+    setFoodName("");
+    setDaysSinceIAte("");
+
+    window.alert("Comida adicionada á lista!");
   }
 
   return (
@@ -27,23 +28,30 @@ export function Form() {
       </header>
       <div className="formContainer">
         <form onSubmit={addToList}>
-          <label htmlFor="foodName">Food name:</label>
+          <label htmlFor="foodName">Nome da comida:</label>
           <input
             type="text"
             name="foodName"
             id="foodName"
             onChange={(e) => setFoodName(e.target.value)}
+            value={foodName}
           />
-          <label htmlFor="daysSinceIAte">Days since you ate it:</label>
+          <label htmlFor="daysSinceIAte">Dias desde que eu comi:</label>
           <input
             type="number"
             name="daysSinceIAte"
             id="daysSinceIAte"
             onChange={(e) => setDaysSinceIAte(e.target.value)}
+            value={daysSinceIAte}
           />
           <button type="submit">Add to list</button>
         </form>
       </div>
+      <footer>
+        <Link to="/" id="button">
+          Minha Lista
+        </Link>
+      </footer>
     </Container>
   );
 }
