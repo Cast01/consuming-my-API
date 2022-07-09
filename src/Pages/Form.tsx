@@ -12,7 +12,7 @@ export function Form() {
   function addToList(e: FormEvent) {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/insert", {
+    axios.post("https://food-list-pedrotech-mongodb.herokuapp.com/insert", {
       foodName,
       daysSinceIAte,
     });

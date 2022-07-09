@@ -16,7 +16,7 @@ export function FoodList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/read")
+      .get("https://food-list-pedrotech-mongodb.herokuapp.com/read")
       .then((res) => setFoodList(res.data))
       .catch((err) => console.log(err));
   }, []);
